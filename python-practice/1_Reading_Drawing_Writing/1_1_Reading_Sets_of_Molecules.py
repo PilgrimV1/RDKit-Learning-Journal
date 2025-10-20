@@ -43,7 +43,26 @@ with Chem.ForwardSDMolSupplier(inf) as fsuppl:
 # This will compress the file into a .gz file
 
 import gzip
+
+# Reading from Compressed files
+
 inf = gzip.open('Sdf_files/chebi_test.sdf.gz')
 with Chem.ForwardSDMolSupplier(inf) as gzsuppl:
     ms = [x for x in gzsuppl if x is None]
-print(len(ms))
+print(len(ms))  # amount of molecules within the compressed file
+
+# In order to read SDF or SMILES formulas concurrently one needs, MultithreadedMolSuppliers
+i = 0 
+with Chem.MultithreadedSDMolSupplier('Sdf_files/chebi_test1.sdf') as sdSupl:
+  for mol in sdSupl:
+    if mol is not None:
+      i += 1
+print(i)
+
+# Forward Mol Suppliers cannot be used as Random-Access objects, will print out an error
+inf = open('Sdf_files/chebi_test.sdf.gz','rb')
+with Chem.ForwardSDMolSupplier(inf) as fsuppl:
+  fsuppl[0]
+
+# Note that due to multithreading the output may not be in the expected order. 
+# Furthermore, the MultithreadedSmilesMolSupplier and the MultithreadedSDMolSupplier cannot be used as random-access objects.
