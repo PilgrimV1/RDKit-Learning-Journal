@@ -17,3 +17,8 @@ imports the functions to visualize molecules into .svg or .jpg
 
 - Command(s):
 - Chem.MolToImage()   (then use img.show() to reveal the compound)
+
+
+| This   | is    | a       |
+| ------ | ----- | ------- |
+| simple | table | example |
