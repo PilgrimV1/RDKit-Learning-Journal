@@ -4,6 +4,7 @@
 # Chapter 1
 
 | from rdkit import Chem | imports the Chem module of RDKit. To load and save molecules. Handle atoms, bonds and rings and read or write molecules |
+|-|-|
 
 
 - Commands:
