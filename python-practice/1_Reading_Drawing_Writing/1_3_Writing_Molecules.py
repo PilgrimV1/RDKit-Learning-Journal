@@ -49,4 +49,16 @@ print(Chem.MolToMolBlock(m4))
 m5 = Chem.AddHs(m4)
 params = AllChem.ETKDGv3()
 params.randomSeed = 0xf00d
-AllChem.EmbedMolecule(m3, params)
+AllChem.EmbedMolecule(m5, params)
+
+print(Chem.MolToMolBlock(m5))
+
+
+# If you want to remove all Hydrogen atoms in the output of coordinates
+
+m5NH = Chem.RemoveAllHs(m5)
+print(Chem.MolToMolBlock(m5NH))
+
+# To write a molecule to a file you can use Python file objects:
+
+print(Chem.MolToMolBlock(m4), file=open('python-practice/1_Reading_Drawing_Writing/PrintFile1.mol', 'w+'))
