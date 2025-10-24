@@ -1,5 +1,7 @@
 # Self Study Notes for RDKit
 
+<span style="color:#fff; font-family: 'Bebas Neue'; font-size: 4em;">INSPIRATION DAY</span>
+
 Chapter 1
 
 - from rdkit import Chem  
