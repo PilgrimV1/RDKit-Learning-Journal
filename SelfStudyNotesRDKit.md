@@ -11,8 +11,9 @@
 
 - from rdkit import *Chem* \
 This imports the Chem module of RDKit. To load and save molecules. Handle atoms, bonds and rings and read or write molecules.
-- from rdkit import *Draw* \
-imports the functions to visualize molecules into .svg or .jpg
+- from *rdkit.Chem* import *Draw* \
+imports the functions to visualize molecules into .svg or .jpg \
+**!Important:** Make sure to use *rdkit.Chem* to import the Draw module
 
 - **Commands in the *Chem* module:**
 
