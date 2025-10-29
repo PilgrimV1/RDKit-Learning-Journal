@@ -25,8 +25,16 @@ StringIO is a class that creates an object behaving similar to a file, except:
 - you can write to it, read from it, seek and close it ... like a file handle
 '''
 
-sio = StringIO()        # Creates an in-memory file (basically an object you can store) by using the "data = sio.getvalue()" after using sio.write() and then promptly using print("data captured:", data)
+sio = StringIO()        
+
+'''
+sio = StringIO():
+
+Creates an in-memory file (basically an object you can store) by using the "data = sio.getvalue()" 
+after using sio.write() and then promptly using print("data captured:", data)
+'''
+
 with Chem.SDWriter(sio) as w:
     for m in mols:
         w.write(m)
-print(sio.getvalue())   # 
+print(sio.getvalue())
