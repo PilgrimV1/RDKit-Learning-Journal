@@ -29,7 +29,6 @@ Where within the () you use the variable you set for the given molecule. In this
 
 The .GetSymmSSSR() function gets us the symmetrical SSSR
 
-While
 
 The .GetSSSR() function gets us the "true SSSR"
 '''
@@ -44,3 +43,19 @@ list(ssr[1])
 # in order to find out the length of the "True" SSSR
 
 len(Chem.GetSSSR(m))
+
+
+# For more efficient queries about a molecule’s ring systems (avoiding repeated calls to Mol.GetAtomWithIdx) use the rdkit.Chem.rdchem.RingInfo class
+
+m.Chem.MolFromSmiles('OC1C2C1CC2')
+
+ri = m.GetRingInfo()
+ri.NumAtomRings(0)      # Number of Atom Rings at index 0. Should return 0.
+
+ri.NumAtomRings(1)      # Number of Atom Rings at index 1. Should return 1 (given C1)
+
+ri.NumAtomRings(2)      # Number of Atom Rings at index 2. Should return 2 (given C2)
+
+ri.IsAtomInRingOfSize(1, 3)     # Asks Whether Atom at index 1 is in ring size of 3
+
+ri.IsBondInRingOfSize(1, 3)     # Asks whether Bond at index 1 is in ring size of 3
